@@ -19,14 +19,14 @@ return new class extends Migration
             $table->double('price');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
-           
+
         });
-       
+
         Schema::table('products', function (Blueprint $table) {
                      $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
-           
+
         });
-       
+
     }
 
 
@@ -39,12 +39,11 @@ return new class extends Migration
             $table->dropForeign('products_category_id_foreign');
         });
 
-
         Schema::table('products', function (Blueprint $table) {
             $table->dropIndex('products_category_id_foreign');
         });
 
-
         Schema::dropIfExists('products');
     }
+
 };

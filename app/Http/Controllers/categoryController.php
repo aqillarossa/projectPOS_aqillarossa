@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\category;
 use Illuminate\Http\RedirectResponse;
 
 class categoryController extends Controller
@@ -11,9 +11,9 @@ class categoryController extends Controller
     //
     public function index()
     {
-        return view('category.category', [
-            "title" => "Kategori",
-            "data" => Category::all()
+        return view('categori.category', [
+            "title" => "kategori",
+            "data" => category::all()
         ]);
     }
     public function store(Request $request): RedirectResponse
@@ -22,7 +22,7 @@ class categoryController extends Controller
             "name" => "required",
             "description" => "nullable",
         ]);
-        Category::create($request->all());
+        category::create($request->all());
 
         return redirect()->route('kategori.index')->with('success','Kategori Berhasil Ditambahkan.');
 }

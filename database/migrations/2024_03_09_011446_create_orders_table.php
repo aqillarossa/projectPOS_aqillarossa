@@ -29,7 +29,6 @@ Schema::table('orders',function(Blueprint $table){
     }
 
 
-
     /**
      * Reverse the migrations.
      */
@@ -50,7 +49,8 @@ Schema::table('orders',function(Blueprint $table){
         Schema::table('orders', function(Blueprint $table) {
             $table->dropIndex('orders_user_id_foreign');
         });
-              
+
         Schema::dropIfExists('orders');
     }
+
 };
