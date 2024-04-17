@@ -4,6 +4,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,3 +33,4 @@ Route::resource('kategori',categoryController::class)->except('show','destroy','
 route::resource('pelanggan',CustomerController::class)->except('destroy');
 route::resource('produk',ProductController::class);
 
+Route::resource('pengguna',UserController::class)->except('destroy','create','show','update','edit');
