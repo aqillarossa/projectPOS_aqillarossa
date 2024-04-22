@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     //
-    public function loginView()
-    {
+
+    public function loginView(){
         return view('login');
     }
-    public function authenticate(Request $request):RedirectResponse
-    {
-        $credentials= $request->validate([
+
+    public function authenticate(Request $request):RedirectResponse{
+        $credentials=$request->validate([
             'email'=>['required','email:rfc,dns'],
             'password'=>['required'],
         ]);
@@ -23,7 +23,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/');
         }
-        return back()->with('loginError','Login Failed');
+        return back()->with('loginError','Login Filed');
     }
     public function logout(Request $request): RedirectResponse
     {

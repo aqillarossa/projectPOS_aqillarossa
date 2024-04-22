@@ -59,6 +59,14 @@ class ProductController extends Controller
         return redirect()->route('produk.index')->with('updated','Data Produk Berhasil Diubah');
     }
 
+    // public function show():View
+    // {
+    //     $product=Product::all();
+    //     return view('product.show')->with([
+    //         "title" => "Tampil Data Produk",
+    //         "data"=>$product
+    //     ]);
+    // }
 
     public function show($id): View {
         $product = Product::findOrFail($id);
